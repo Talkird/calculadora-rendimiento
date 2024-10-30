@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { comment } from "postcss";
-
   let ars0 = 0;
   let interest = 0;
   let usd0 = 0;
@@ -16,6 +14,15 @@
     rendimiento = 100 * (total / usdInicial);
     rendimiento = parseFloat(rendimiento.toFixed(2));
   };
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Enter") {
+      event.preventDefault();
+      calculate();
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
 </script>
 
 <main class="h-screen flex items-center justify-center p-6 bg-base-200">
